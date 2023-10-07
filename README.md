@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Introduction
+
+Note from developer and amature chef, Morgan O'Shaughnessey:
+
+This is a food order app that I'm building as a suprise for my girlfriend's birthday. It started as a Create-React-App class project ("React - A Complete Guide" by Academind--Maximilian Schwarzmüller & Manuel Lorenz) that I completed in April of 2023. In October 2023, I took the core logic from that old app and itegrated it into a new Next.js + Typescript app.
+
+This initial commit captures the old styling, UI, and UX of the original class project, which was left intact on purpose to allow the commit history to capture more of the development journey. It was also committed at this point to allow for feedback from trusted friends and mentors on how to implement best practices in the code before building for production and continuous deployment.
+
+Happy coding, our food will be ready shortly!
+
 ## Getting Started
 
 First, run the development server:
