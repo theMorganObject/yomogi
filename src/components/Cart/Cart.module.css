@@ -1,5 +1,5 @@
 .empty {
-  color: black;
+  color: var(--yomogi-11);
 }
 
 .cart-items {
@@ -17,7 +17,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin: 1rem 0;
-  color: black;
+  color: var(--yomogi-11);
 }
 
 .actions {
@@ -28,7 +28,7 @@
   font: inherit;
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid #8a2b06;
+  border: 1px solid var(--mysticgrape-10);
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;
@@ -36,16 +36,16 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #5a1a01;
-  border-color: #5a1a01;
-  color: white;
+  background-color: var(--mysticgrape-2);
+  border-color: var(--yomogi-11);
+  color: var(--yomogi-11);
 }
 
 .actions .button--alt {
-  color: #8a2b06;
+  color: var(--yomogi-11);
 }
 
 .actions .button {
-  background-color: #8a2b06;
-  color: white;
+  background-color: var(--mysticgrape-7);
+  color: var(--yomogi-0);
 }

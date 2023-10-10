@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="300.000000pt"
+   height="300.000000pt"
+   viewBox="0 0 300.000000 300.000000"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg8"
+   sodipodi:docname="yomogi-icon.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12">
+    <rect
+       x="126.96078"
+       y="54.411765"
+       width="80.805043"
+       height="294.1933"
+       id="rect172" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="2.04"
+     inkscape:cx="200"
+     inkscape:cy="200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <metadata
+     id="metadata2">
+Created by potrace 1.10, written by Peter Selinger 2001-2011
+</metadata>
+  <g
+     transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
+     fill="#000000"
+     stroke="#000000"
+     id="g6"
+     style="stroke:#55208d;stroke-opacity:1;fill:#55208d;fill-opacity:1">
+    <path
+       d="M684 2803 c-13 -190 -10 -865 4 -1038 17 -204 48 -468 72 -622 27 -172 78 -433 90 -461 l10 -22 70 35 c71 36 235 95 263 95 11 0 16 -20 21 -82 9 -102 41 -294 61 -368 26 -93 77 -218 91 -224 8 -3 27 21 53 68 58 106 147 221 239 308 l81 77 57 -34 c116 -70 549 -275 580 -275 12 0 15 6 10 23 -80 282 -140 635 -182 1062 -9 94 -20 174 -24 178 -4 5 -32 1 -61 -8 -64 -19 -192 -30 -241 -21 l-34 6 -17 148 c-33 295 -41 423 -41 730 -1 304 -2 313 -21 318 -72 17 -1059 234 -1065 234 -5 0 -12 -57 -16 -127z m80 22 c-1 -28 -5 -183 -9 -345 -13 -487 21 -941 106 -1440 16 -96 37 -204 45 -239 12 -52 12 -66 2 -73 -7 -4 -17 -6 -23 -5 -12 4 -65 279 -99 517 -62 428 -81 755 -72 1225 7 382 10 418 35 413 12 -3 16 -15 15 -53z m466 -55 c228 -50 423 -94 434 -97 17 -5 18 -14 11 -152 -12 -252 18 -729 66 -1051 20 -136 100 -546 118 -608 10 -33 10 -34 -17 -27 -133 34 -421 40 -567 11 -112 -21 -182 -41 -263 -73 -35 -14 -65 -23 -67 -21 -13 13 -97 520 -119 718 -37 333 -41 411 -41 885 0 449 3 523 22 512 5 -3 195 -46 423 -97z m515 -242 c-8 -151 8 -541 30 -763 29 -276 100 -684 155 -881 10 -38 17 -70 16 -72 -2 -1 -15 2 -29 7 -28 11 -25 0 -82 281 -95 464 -135 863 -135 1341 l0 219 26 0 26 0 -7 -132z m385 -1054 c0 -4 -11 -38 -25 -76 -29 -80 -77 -265 -110 -423 -14 -67 -25 -102 -28 -90 -17 54 -117 544 -117 569 0 1 46 2 103 3 56 0 116 6 132 11 37 13 45 14 45 6z m84 -544 c34 -233 93 -530 121 -602 7 -17 5 -17 -26 -4 -29 12 -35 22 -51 77 -48 168 -93 427 -127 726 l-20 171 21 69 21 68 23 -195 c12 -107 29 -247 38 -310z m-93 60 c25 -199 61 -401 94 -529 14 -52 23 -96 21 -98 -6 -6 -321 147 -418 203 l-79 45 -56 -42 c-69 -54 -151 -143 -216 -237 -37 -53 -53 -68 -59 -58 -28 49 -74 289 -93 477 l-7 66 78 6 c163 14 329 3 502 -34 50 -11 97 -17 102 -14 6 3 10 15 10 26 0 24 65 334 83 394 l12 40 3 -40 c1 -22 12 -114 23 -205z m-827 -274 c9 -129 41 -304 76 -406 24 -75 26 -88 15 -110 l-13 -25 -12 30 c-51 133 -106 404 -111 550 -1 55 -1 55 20 55 16 0 19 -12 25 -94z"
+       id="path4"
+       style="stroke:#55208d;stroke-opacity:1;fill:#55208d;fill-opacity:1" />
+  </g>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,7.7167969,-18.75)"
+     id="text170"
+     style="font-size:64px;font-family:sans-serif;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect172);display:inline;fill:#2e5031;fill-opacity:1;stroke:#000000;stroke-opacity:1"><tspan
+       x="126.96094"
+       y="117.41211"
+       id="tspan14790">よ
+</tspan><tspan
+       x="126.96094"
+       y="202.02298"
+       id="tspan14792">も
+</tspan><tspan
+       x="126.96094"
+       y="286.63385"
+       id="tspan14794">ぎ</tspan></text>
+</svg>

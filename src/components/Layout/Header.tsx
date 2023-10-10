@@ -3,6 +3,7 @@ import { Fragment } from "react";
 
 import HeaderCartButton from "./HeaderCartButton";
 import classes from "./Header.module.css";
+import YoMogi from "../UI/YoMogiIcon";
 
 interface HeaderProps {
   onShowCart: () => void;
@@ -12,7 +13,8 @@ const Header: React.FC<HeaderProps> = (props) => {
   return (
     <Fragment>
       <header className={classes.header}>
-        <h1>yoMogi</h1>
+        {/* <h1>yoMogi</h1> */}
+        <YoMogi />
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
       <div className={classes["main-image"]}>
