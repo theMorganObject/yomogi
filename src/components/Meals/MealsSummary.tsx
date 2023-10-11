@@ -10,7 +10,6 @@ const MealsSummary = () => {
       <Image
         src="/img/yomogi-flower.png"
         alt="Wormwood leaves and purple flower"
-        className={classes.backgroundImage}
         layout="fill"
         objectFit="cover"
         objectPosition="center"

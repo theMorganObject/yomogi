@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { Fragment } from "react";
-
 import HeaderCartButton from "./HeaderCartButton";
 import classes from "./Header.module.css";
 import YoMogi from "../UI/YoMogiIcon";
@@ -11,21 +8,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = (props) => {
   return (
-    <Fragment>
-      <header className={classes.header}>
-        {/* <h1>yoMogi</h1> */}
-        <YoMogi />
-        <HeaderCartButton onClick={props.onShowCart} />
-      </header>
-      <div className={classes["main-image"]}>
-        <Image
-          src="/img/meals.jpg"
-          alt="A table full of delicious food!"
-          height={400}
-          width={400}
-        />
-      </div>
-    </Fragment>
+    <header className={classes.header}>
+      <YoMogi />
+      <HeaderCartButton onClick={props.onShowCart} />
+    </header>
   );
 };
 

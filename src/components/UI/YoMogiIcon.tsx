@@ -7,9 +7,12 @@ export default function YoMogi() {
       <Image
         src="/yomogi-icon.svg"
         alt="YoMogi icon"
-        height={120}
-        width={120}
-        style={{ transform: "translateY(1.1rem)" }}
+        height={65}
+        width={65}
+        style={{
+          transform: "translateY(0.9rem)",
+          filter: "drop-shadow(1.2px 2.1px 3.5px var(--yomogi-11))",
+        }}
       />
     </Link>
   );

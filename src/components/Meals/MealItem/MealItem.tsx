@@ -3,6 +3,7 @@ import { useContext } from "react";
 import MealItemForm from "./MealItemForm";
 import classes from "./MealItem.module.css";
 import CartContext from "../../../store/cart-context";
+import { cinzelDecorative } from "@/components/utils/fonts";
 
 export interface MealItemProps {
   id: string;
@@ -28,7 +29,7 @@ const MealItem: React.FC<MealItemProps> = (props) => {
   return (
     <li className={classes.meal}>
       <div>
-        <h3>{props.name}</h3>
+        <h3 className={cinzelDecorative.className}>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
         <div className={classes.price}>{price}</div>
       </div>

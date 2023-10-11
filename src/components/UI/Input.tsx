@@ -3,6 +3,7 @@ import classes from "./Input.module.css";
 
 interface InputProps {
   label: string;
+  className?: string;
   input: {
     id: string;
     type: string;

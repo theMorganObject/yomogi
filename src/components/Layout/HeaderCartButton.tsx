@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import CartIcon from "../Cart/CartIcon";
 import CartContext from "../../store/cart-context";
 import classes from "./HeaderCartButton.module.css";
+import { cinzelDecorative } from "../utils/fonts";
 
 interface HeaderCartButtonProps {
   onClick: () => void;
@@ -42,7 +43,7 @@ const HeaderCartButton: React.FC<HeaderCartButtonProps> = (props) => {
       <span className={classes.icon}>
         <CartIcon />
       </span>
-      <span>Your Cart</span>
+      <span className={cinzelDecorative.className}>Place Order</span>
       <span className={classes.badge}>{numberOfCartItems}</span>
     </button>
   );
