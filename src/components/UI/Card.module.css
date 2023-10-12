@@ -1,10 +1,10 @@
 .card {
-  padding: 1rem;
   box-shadow: 1px 1px 12px var(--yomogi-11);
   border-radius: 14px;
   background: linear-gradient(
     to bottom right,
-    rgba(224, 247, 236, 1) 45%,
-    rgba(195, 173, 255, 1) 100%
+    var(--yomogi-0) 45%,
+    var(--mysticgrape-0) 100%
   );
+  padding: 1rem;
 }

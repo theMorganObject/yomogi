@@ -50,7 +50,7 @@ const Cart: React.FC<CartProps> = (props) => {
           <ul className={classes["cart-items"]}>{cartItems}</ul>
           <div className={classes.total}>
             <span>Total Amount</span>
-            <span>{totalAmount}</span>
+            <span className={classes.number}>{totalAmount}</span>
           </div>
           <div className={classes.actions}>
             <button className={classes["button--alt"]} onClick={props.onClose}>

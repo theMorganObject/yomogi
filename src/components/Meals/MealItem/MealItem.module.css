@@ -1,28 +1,30 @@
 .meal {
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--yomogi-5);
   color: var(--yomogi-9);
+  border-bottom: 1px solid var(--yomogi-5);
+  padding-bottom: 1rem;
+  margin: 1rem;
 }
 
 .meal h3 {
-  margin: 0 0 0.25rem 0;
+  font-family: var(--font-cinzel-decorative);
   font-weight: 800;
   color: var(--yomogi-9);
   letter-spacing: 0.05rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .description {
+  font-family: var(--font-cormorant-garamond);
   color: var(--yomogi-11);
   font-style: italic;
   font-size: 18px;
 }
 
 .price {
-  margin-top: 0.25rem;
-  font-weight: bold;
+  font-family: var(--font-montserrat);
   color: var(--yomogi-9);
-  font-size: 1.25rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
 }

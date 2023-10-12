@@ -5,15 +5,16 @@
 }
 
 .input label {
+  font-family: var(--font-cinzel-decorative);
   font-weight: bold;
-  margin-right: 1rem;
   font-size: 14px;
+  margin-right: 1rem;
 }
 
 .input input {
+  font-family: var(--font-montserrat);
   width: 3rem;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  font: inherit;
+  border: 1px solid var(--yomogi-0);
   padding-left: 0.5rem;
 }

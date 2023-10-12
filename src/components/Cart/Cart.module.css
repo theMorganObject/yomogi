@@ -14,21 +14,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--font-cinzel-decorative);
   font-weight: bold;
   font-size: 1.5rem;
-  margin: 1rem 0;
   color: var(--yomogi-11);
+  margin: 1rem 0;
 }
 
 .actions {
   text-align: right;
+  font-family: var(--font-cinzel-decorative);
 }
 
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: transparent;
+  background-color: var(--mysticgrape-10);
   border: 1px solid var(--mysticgrape-10);
+  color: var(--yomogi-0);
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;
@@ -36,16 +39,22 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: var(--mysticgrape-2);
+  background-color: var(--mysticgrape-7);
   border-color: var(--yomogi-11);
-  color: var(--yomogi-11);
+  color: var(--yomogi-0);
 }
 
 .actions .button--alt {
   color: var(--yomogi-11);
+  background-color: var(--yomogi-0);
 }
 
-.actions .button {
+.actions .button--alt:hover,
+.actions .button--alt:active {
   background-color: var(--mysticgrape-7);
   color: var(--yomogi-0);
+}
+
+.number {
+  font-family: var(--font-montserrat);
 }

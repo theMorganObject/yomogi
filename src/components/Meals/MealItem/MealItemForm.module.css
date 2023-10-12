@@ -3,17 +3,17 @@
 }
 
 .form button {
-  font: inherit;
-  cursor: pointer;
+  font-family: var(--font-cinzel-decorative);
+  font-weight: bold;
+  color: var(--yomogi-0);
   background: linear-gradient(
     to left top,
     var(--mysticgrape-11),
     var(--mysticgrape-5)
   );
-  color: var(--yomogi-0);
-  padding: 0.25rem 2rem;
+  cursor: pointer;
   border-radius: 20px;
-  font-weight: bold;
+  padding: 0.25rem 2rem;
 }
 
 .form button:hover,
