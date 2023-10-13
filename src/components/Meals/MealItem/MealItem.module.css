@@ -22,9 +22,22 @@
   font-size: 18px;
 }
 
-.price {
+.details {
+  display: flex;
   font-family: var(--font-montserrat);
   color: var(--yomogi-9);
   font-size: 1rem;
   margin-top: 0.25rem;
+}
+
+.time {
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+.price {
+  /* FIXME font-weight not applying */
+  font-weight: 400;
+  font-style: italic;
+  padding-left: 1rem;
 }
