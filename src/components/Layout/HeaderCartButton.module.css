@@ -1,39 +1,55 @@
 .button {
-  cursor: pointer;
-  font: inherit;
-  border: none;
-  background-color: #4d1601;
-  color: white;
-  padding: 0.75rem 3rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(
+    to left top,
+    var(--mysticgrape-11),
+    var(--mysticgrape-5)
+  );
+  box-shadow: var(--yomogi-11) 3px 2px 12px;
+  font-size: 18px;
   font-weight: bold;
+  color: var(--yomogi-0);
+  border-radius: 25px;
+  padding: 0.75rem 2rem;
 }
 
 .button:hover,
 .button:active {
-  background-color: #2c0d00;
+  background: linear-gradient(
+    to left top,
+    var(--mysticgrape-9),
+    var(--mysticgrape-1)
+  );
 }
 
 .icon {
   width: 1.35rem;
   height: 1.35rem;
+  fill: var(--yomogi-2);
   margin-right: 0.5rem;
 }
 
+.cta {
+  font-family: var(--font-cinzel-decorative);
+}
+
 .badge {
-  background-color: #b94517;
-  padding: 0.25rem 1rem;
-  border-radius: 25px;
-  margin-left: 1rem;
+  background-color: var(--mysticgrape-2);
+  font-family: var(--font-montserrat);
   font-weight: bold;
+  font-size: 14px;
+  border-radius: 25px;
+  padding: 0.25rem 1rem;
+  margin-left: 1rem;
 }
 
 .button:hover .badge,
 .button:active .badge {
-  background-color: #92320c;
+  background-color: var(--mysticgrape-0);
 }
 
 .bump {

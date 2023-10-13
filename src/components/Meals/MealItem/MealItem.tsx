@@ -30,6 +30,9 @@ const MealItem: React.FC<MealItemProps> = (props) => {
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
+
+        {/* TODO: add a cook time, style to render as TIME | PRICE(withoutCents) */}
+        {/* <div className={classes.time}>{time}</div> */}
         <div className={classes.price}>{price}</div>
       </div>
       <div>

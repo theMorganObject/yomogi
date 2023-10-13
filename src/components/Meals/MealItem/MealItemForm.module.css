@@ -3,18 +3,24 @@
 }
 
 .form button {
-  font: inherit;
-  cursor: pointer;
-  background-color: #8a2b06;
-  border: 1px solid #8a2b06;
-  color: white;
-  padding: 0.25rem 2rem;
-  border-radius: 20px;
+  font-family: var(--font-cinzel-decorative);
   font-weight: bold;
+  color: var(--yomogi-0);
+  background: linear-gradient(
+    to left top,
+    var(--mysticgrape-11),
+    var(--mysticgrape-5)
+  );
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 0.25rem 2rem;
 }
 
 .form button:hover,
 .form button:active {
-  background-color: #641e03;
-  border-color: #641e03;
+  background: linear-gradient(
+    to left top,
+    var(--mysticgrape-9),
+    var(--mysticgrape-1)
+  );
 }

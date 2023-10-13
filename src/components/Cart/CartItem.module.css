@@ -2,39 +2,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #8a2b06;
+  border-bottom: 2px solid var(--yomogi-9);
   padding: 1rem 0;
   margin: 1rem 0;
 }
 
 .cart-item h2 {
+  font-family: var(--font-cinzel-decorative);
+  color: var(--yomogi-11);
   margin: 0 0 0.5rem 0;
-  color: #363636;
 }
 
 .summary {
-  width: 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--font-montserrat);
+  color: var(--yomogi-11);
+  width: 10rem;
 }
 
 .price {
   font-weight: bold;
-  color: #8a2b06;
+  color: var(--yomogi-9);
 }
 
 .amount {
   font-weight: bold;
-  border: 1px solid #ccc;
-  padding: 0.25rem 0.75rem;
+  color: var(--yomogi-11);
+  border: 1px solid var(--yomogi-0);
   border-radius: 6px;
-  color: #363636;
+  padding: 0.25rem 0.75rem;
 }
 
 .actions {
   display: flex;
   flex-direction: column;
+  font-family: var(--font-montserrat);
+  color: var(--yomogi-11);
 }
 
 @media (min-width: 768px) {
@@ -44,15 +49,13 @@
 }
 
 .cart-item button {
-  font: inherit;
+  text-align: center;
   font-weight: bold;
   font-size: 1.25rem;
-  color: #8a2b06;
-  border: 1px solid #8a2b06;
+  color: var(--mysticgrape-7);
+  border: 1px solid var(--mysticgrape-7);
   width: 3rem;
-  text-align: center;
   border-radius: 6px;
-  background-color: transparent;
   cursor: pointer;
   margin-left: 1rem;
   margin: 0.25rem;
@@ -60,6 +63,7 @@
 
 .cart-item button:hover,
 .cart-item button:active {
-  background-color: #8a2b06;
-  color: white;
+  background-color: var(--mysticgrape-7);
+  color: var(--yomogi-0);
+  border: 2px solid var(--mysticgrape-0);
 }

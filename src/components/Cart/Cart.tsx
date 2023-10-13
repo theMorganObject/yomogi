@@ -1,13 +1,11 @@
 import { useContext } from "react";
 
-import Modal from "../UI/Modal";
+import Modal, { ModalBackdrop, ModalOverlay } from "../UI/Modal";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
 
 export interface CartProps {
-  id: string;
-  item: string;
   onClose: () => void;
 }
 
@@ -18,7 +16,7 @@ interface CartItem {
   price: number;
 }
 
-const Cart: React.FC<CartProps> = (props) => {
+const Cart: React.FC<CartProps> = ({ onClose }) => {
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -44,26 +42,29 @@ const Cart: React.FC<CartProps> = (props) => {
   ));
 
   return (
-    <Modal onClose={props.onClose}>
-      {hasItems ? (
-        <div>
-          <ul className={classes["cart-items"]}>{cartItems}</ul>
-          <div className={classes.total}>
-            <span>Total Amount</span>
-            <span>{totalAmount}</span>
+    <Modal>
+      <ModalBackdrop onClose={onClose} />
+      <ModalOverlay>
+        {hasItems ? (
+          <div>
+            <ul className={classes.cartItems}>{cartItems}</ul>
+            <div className={classes.total}>
+              <span>Total Amount</span>
+              <span className={classes.number}>{totalAmount}</span>
+            </div>
+            <div className={classes.actions}>
+              <button className={classes.buttonAlt} onClick={onClose}>
+                Close
+              </button>
+              <button className={classes.button}>Order</button>
+            </div>
           </div>
-          <div className={classes.actions}>
-            <button className={classes["button--alt"]} onClick={props.onClose}>
-              Close
-            </button>
-            <button className={classes.button}>Order</button>
-          </div>
-        </div>
-      ) : (
-        <h2 className={classes.empty}>
-          Your cart is empty. Please select your food.
-        </h2>
-      )}
+        ) : (
+          <h2 className={classes.empty}>
+            Your cart is empty. Please select your food.
+          </h2>
+        )}
+      </ModalOverlay>
     </Modal>
   );
 };

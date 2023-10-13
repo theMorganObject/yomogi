@@ -1,40 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import classes from "./Modal.module.css";
 
-interface ModalProps {
-  children: React.ReactNode;
-  onClose: () => void;
-}
+export const ModalBackdrop: React.FC<{ onClose: () => void }> = ({
+  onClose,
+}) => {
+  return <div className={classes.backdrop} onClick={onClose} />;
+};
 
-const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const Backdrop: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-    return <div className={classes.backdrop} onClick={onClose} />;
+export const ModalOverlay: React.FC<{ children: React.ReactNode }> =
+  function ModalOverlay({ children }) {
+    return (
+      <div className={classes.modal}>
+        <div className={classes.content}>{children}</div>
+      </div>
+    );
   };
 
-  const ModalOverlay: React.FC<{ children: React.ReactNode }> =
-    function ModalOverlay({ children }) {
-      return (
-        <div className={classes.modal}>
-          <div className={classes.content}>{children}</div>
-        </div>
-      );
+interface ModalProps {
+  children: React.ReactNode;
+}
+
+const Modal: React.FC<ModalProps> = ({ children }) => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
     };
-  return mounted
-    ? createPortal(
-        <>
-          <Backdrop onClose={onClose} />
-          <ModalOverlay>{children}</ModalOverlay>
-        </>,
-        document.body
-      )
-    : null;
+  }, []);
+
+  return createPortal(children, document.body);
 };
 
 export default Modal;
