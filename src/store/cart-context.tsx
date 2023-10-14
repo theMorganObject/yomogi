@@ -19,7 +19,7 @@ interface CartContextValue {
 const CartContext = React.createContext<CartContextValue>({
   items: [],
   totalAmount: 0,
-  totalTime: 0, // FIXME 0 is a placeholder value, re-assess when implementing logic.
+  totalTime: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
 });

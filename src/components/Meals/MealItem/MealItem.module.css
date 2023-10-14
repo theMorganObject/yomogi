@@ -36,7 +36,6 @@
 }
 
 .price {
-  /* FIXME font-weight not applying */
   font-weight: 400;
   font-style: italic;
   padding-left: 1rem;

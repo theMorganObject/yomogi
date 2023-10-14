@@ -15,7 +15,7 @@ export interface MealItemProps {
 const MealItem: React.FC<MealItemProps> = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const price = `$${props.price}`; // TODO this used to have .toFixed(2) attached to it, but that throws a ts error
+  const price = `$${props.price}`;
 
   const addToCartHandler = (amount: number) => {
     cartCtx.addItem({
