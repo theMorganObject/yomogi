@@ -9,9 +9,8 @@ export default function About() {
         src="/img/palette-1.png"
         alt="Wormwood leaves and purple flower"
         className={css.backgroundImage}
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
+        height={400}
+        width={400}
       />
       <h1 className={css.title}>YoMogi</h1>
       <p className={css.subtitle}>Japanese-Fusion Gastropub</p>

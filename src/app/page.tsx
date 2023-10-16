@@ -30,9 +30,8 @@ export default function Home() {
           src="/img/menu-bg.jpg"
           alt="Wormwood leaves"
           className={css.backgroundImage}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          height={400}
+          width={400}
         />
         <h1 className={css.title}>YoMogi</h1>
         <p className={css.subtitle}>Japanese-Fusion Gastropub</p>
