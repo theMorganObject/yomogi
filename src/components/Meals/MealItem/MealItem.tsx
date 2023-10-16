@@ -8,19 +8,21 @@ export interface MealItemProps {
   id: string;
   name: string;
   description: string;
+  time: number;
   price: number;
 }
 
 const MealItem: React.FC<MealItemProps> = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const price = `$${props.price}`; // TODO this used to have .toFixed(2) attached to it, but that throws a ts error
+  const price = `$${props.price}`;
 
   const addToCartHandler = (amount: number) => {
     cartCtx.addItem({
       id: props.id,
       name: props.name,
       amount: amount,
+      time: props.time,
       price: props.price,
     });
   };
@@ -30,10 +32,11 @@ const MealItem: React.FC<MealItemProps> = (props) => {
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
-
-        {/* TODO: add a cook time, style to render as TIME | PRICE(withoutCents) */}
-        {/* <div className={classes.time}>{time}</div> */}
-        <div className={classes.price}>{price}</div>
+        <div className={classes.details}>
+          <div className={classes.time}>{props.time} min</div>
+          <div>|</div>
+          <div className={classes.price}>{price}</div>
+        </div>
       </div>
       <div>
         <MealItemForm id={props.id} onAddToCart={addToCartHandler} />

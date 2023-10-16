@@ -17,5 +17,5 @@ export const cinzelDecorative = Cinzel_Decorative({
 export const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: "700",
+  weight: ["400", "700"],
 });

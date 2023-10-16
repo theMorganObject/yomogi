@@ -3,6 +3,7 @@ import CartContext, { CartItem } from "./cart-context"; // Import the CartItem t
 
 interface CartState {
   items: CartItem[]; // Use the CartItem type for items
+  totalTime: number;
   totalAmount: number;
 }
 
@@ -14,11 +15,13 @@ interface CartAction {
 
 const defaultCartState: CartState = {
   items: [],
+  totalTime: 0,
   totalAmount: 0,
 };
 
 const cartReducer = (state: CartState, action: CartAction) => {
   if (action.type === "ADD" && action.item) {
+    const updatedTotalTime = state.totalTime + action.item.time;
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 
@@ -32,6 +35,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
       const updatedItem = {
         ...existingCartItem,
         amount: existingCartItem.amount + action.item.amount,
+        time: existingCartItem.time + action.item.time,
       };
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
@@ -41,6 +45,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
 
     return {
       items: updatedItems,
+      totalTime: updatedTotalTime,
       totalAmount: updatedTotalAmount,
     };
   }
@@ -49,6 +54,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
       (item) => item.id === action.id
     );
     const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalTime = state.totalTime - existingItem.time;
     const updatedTotalAmount = state.totalAmount - existingItem.price;
     let updatedItems;
     if (existingItem.amount === 1) {
@@ -62,6 +68,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
+      totalTime: updatedTotalTime,
     };
   }
 
@@ -85,6 +92,7 @@ const CartProvider: React.FC<{ children: ReactNode }> = (props) => {
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
+    totalTime: cartState.totalTime,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };

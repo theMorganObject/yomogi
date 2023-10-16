@@ -13,13 +13,15 @@ interface CartItem {
   id: string;
   name: string;
   amount: number;
+  time: number;
   price: number;
 }
 
 const Cart: React.FC<CartProps> = ({ onClose }) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const totalTime = `${cartCtx.totalTime} min`;
+  const totalAmount = `$${cartCtx.totalAmount}`;
   const hasItems = cartCtx.items.length > 0;
 
   const cartItemRemoveHandler = (id: string) => {
@@ -35,6 +37,7 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
       key={item.id}
       name={item.name}
       amount={item.amount}
+      time={item.time}
       price={item.price}
       onRemove={cartItemRemoveHandler.bind(null, item.id)}
       onAdd={cartItemAddHandler.bind(null, item)}
@@ -48,6 +51,10 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
         {hasItems ? (
           <div>
             <ul className={classes.cartItems}>{cartItems}</ul>
+            <div className={classes.total}>
+              <span>Total Time</span>
+              <span className={classes.number}>{totalTime}</span>
+            </div>
             <div className={classes.total}>
               <span>Total Amount</span>
               <span className={classes.number}>{totalAmount}</span>
