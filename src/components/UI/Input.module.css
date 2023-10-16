@@ -12,6 +12,7 @@
 }
 
 .input input {
+  background-color: var(--mysticgrape-0);
   font-family: var(--font-montserrat);
   width: 3rem;
   border-radius: 5px;
