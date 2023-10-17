@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import Modal, { ModalBackdrop, ModalOverlay } from "../UI/Modal";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
+import { POST } from "../../api/orders";
 
 export interface CartProps {
   onClose: () => void;
@@ -18,8 +19,9 @@ interface CartItem {
 }
 
 const Cart: React.FC<CartProps> = ({ onClose }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderSent, setOrderSent] = useState(true);
   const cartCtx = useContext(CartContext);
-
   const totalTime = `${cartCtx.totalTime} min`;
   const totalAmount = `$${cartCtx.totalAmount}`;
   const hasItems = cartCtx.items.length > 0;
@@ -44,6 +46,51 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
     />
   ));
 
+  const orderHandler = async () => {
+    // Prevent double submissions
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      // Prepare the order data to be sent to a backend
+      const orderData = {
+        items: cartCtx.items,
+        totalAmount: cartCtx.totalAmount,
+        totalTime: cartCtx.totalTime,
+      };
+
+      // Send the order to a secure local backend using a POST request
+      const response = await POST(orderData);
+      if (!response.ok) {
+        throw new Error("Order submission failed.");
+      }
+
+      // Order was successfully submitted
+      setOrderSent(true);
+
+      // Reset the cart or show a success message
+      cartCtx.clearCart();
+
+      onClose(); // Close the cart modal
+    } catch (error) {
+      // Handle any errors (e.g., display an error message)
+      // console.error(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   if (orderSent) {
+  //     const timer = setTimeout(() => {
+  //       setOrderSent(false), 5000;
+  //     });
+  //     return () => {
+  //       clearTimeout(timer);
+  //     };
+  //   }
+  // }, [orderSent]);
+
   return (
     <Modal>
       <ModalBackdrop onClose={onClose} />
@@ -59,11 +106,20 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
               <span>Total Amount</span>
               <span className={classes.number}>{totalAmount}</span>
             </div>
+            {orderSent && (
+              <div className={classes.orderSent}>Order received!</div>
+            )}
             <div className={classes.actions}>
               <button className={classes.buttonAlt} onClick={onClose}>
                 Close
               </button>
-              <button className={classes.button}>Order</button>
+              <button
+                className={classes.button}
+                onClick={orderHandler}
+                disabled={cartCtx.items.length === 0 || isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Order"}
+              </button>
             </div>
           </div>
         ) : (

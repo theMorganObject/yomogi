@@ -24,7 +24,7 @@
 .DS_Store
 *.pem
 /inspiration
-
+/src/api/orders.tsx
 
 # debug
 npm-debug.log*
