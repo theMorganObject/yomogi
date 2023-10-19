@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+  font-family: var(--font-cinzel-decorative);
+  color: var(--yomogi-11);
+  font-size: 6rem;
+  letter-spacing: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.backgroundImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}

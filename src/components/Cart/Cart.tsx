@@ -52,34 +52,33 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
     setIsSubmitting(true);
 
     try {
-      // Prepare the order data to be sent to a backend
+      const id = crypto.randomUUID();
+
       const orderData = {
+        id,
         items: cartCtx.items,
         totalAmount: cartCtx.totalAmount,
         totalTime: cartCtx.totalTime,
       };
 
-      // Send the order to a secure local backend using a POST request
       const response = await POST(orderData);
       if (!response.ok) {
         throw new Error("Order submission failed.");
       }
 
-      // Order was successfully submitted
       setOrderSent(true);
-
-      // Reset the cart or show a success message
       cartCtx.clearCart();
 
-      onClose(); // Close the cart modal
+      onClose();
     } catch (error) {
-      // Handle any errors (e.g., display an error message)
+      // TODO implement error handling
       // console.error(error.message);
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  // TODO show user that order was sent
   // useEffect(() => {
   //   if (orderSent) {
   //     const timer = setTimeout(() => {

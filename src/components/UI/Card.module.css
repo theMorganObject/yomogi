@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 1px 1px 12px var(--yomogi-11);
+  box-shadow: 1px 5px 10px var(--yomogi-11);
   border-radius: 14px;
   background: linear-gradient(
     to bottom right,
