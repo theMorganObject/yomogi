@@ -8,7 +8,7 @@ interface CartState {
 }
 
 interface CartAction {
-  type: "ADD" | "REMOVE";
+  type: "ADD" | "REMOVE" | "CLEAR";
   item?: CartItem;
   id?: string;
 }
@@ -71,6 +71,11 @@ const cartReducer = (state: CartState, action: CartAction) => {
       totalTime: updatedTotalTime,
     };
   }
+  if (action.type === "CLEAR") {
+    return {
+      ...defaultCartState, // Reset the cart state to its initial state
+    };
+  }
 
   return defaultCartState;
 };
@@ -89,12 +94,17 @@ const CartProvider: React.FC<{ children: ReactNode }> = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     totalTime: cartState.totalTime,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
 
   return (
