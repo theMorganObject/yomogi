@@ -4,7 +4,7 @@ import Modal, { ModalBackdrop, ModalOverlay } from "../UI/Modal";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
-import { POST } from "../../api/orders";
+import { POST } from "../../api/Orders";
 
 export interface CartProps {
   onClose: () => void;
@@ -20,7 +20,7 @@ interface CartItem {
 
 const Cart: React.FC<CartProps> = ({ onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [orderSent, setOrderSent] = useState(true);
+  const [orderSent, setOrderSent] = useState(false);
   const cartCtx = useContext(CartContext);
   const totalTime = `${cartCtx.totalTime} min`;
   const totalAmount = `$${cartCtx.totalAmount}`;
@@ -65,10 +65,8 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
       if (!response.ok) {
         throw new Error("Order submission failed.");
       }
-
       setOrderSent(true);
       cartCtx.clearCart();
-
       onClose();
     } catch (error) {
       // TODO implement error handling

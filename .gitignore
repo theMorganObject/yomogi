@@ -24,7 +24,6 @@
 .DS_Store
 *.pem
 /inspiration
-/src/api/orders.tsx
 
 # debug
 npm-debug.log*
@@ -34,6 +33,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.local
 
 
 # vercel
@@ -43,4 +43,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
