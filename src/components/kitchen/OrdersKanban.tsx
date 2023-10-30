@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Card from "../UI/Card";
 import KanbanColumn from "./KanbanColumn";
 import OrderCard from "./OrderCard";
-import { GET, handleCompleteOrder } from "../../api/orders";
+import { GET, handleCompleteOrder } from "../../api/Orders";
 
 import classes from "./OrdersKanban.module.css";
 
@@ -22,6 +22,22 @@ type Order = {
   column: string;
 };
 
+// interface Data {
+//   [key: string]: {
+//     items: {
+//       amount: number;
+//       id: string;
+//       name: string;
+//       price: number;
+//       time: number;
+//     }[];
+//     totalAmount: number;
+//     totalTime: number;
+//     id: string;
+//     column: string;
+//   };
+// }
+
 export default function OrdersKanban() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [columns, setColumns] = useState<string[]>(["k1", "k2", "k3"]);
@@ -36,7 +52,6 @@ export default function OrdersKanban() {
           ...data[key],
           column: "k1",
         }));
-
         setOrders(extractedOrders);
       } catch (error) {
         console.error(error);
