@@ -1,3 +1,4 @@
+import { FF__cookTime } from "../../../FeatureFlags";
 import classes from "./CartItem.module.css";
 
 export interface CartItemProps {
@@ -16,7 +17,11 @@ const CartItem: React.FC<CartItemProps> = (props) => {
     <li className={classes.cartItem}>
       <div>
         <h2>{props.name}</h2>
-        <span className={classes.time}>Ready in {props.time} minutes</span>
+        {FF__cookTime ? (
+          <span className={classes.time}>Ready in {props.time} minutes</span>
+        ) : (
+          ""
+        )}
         <div className={classes.summary}>
           <span className={classes.amount}>x {props.amount}</span>
           <span className={classes.price}>{price}</span>

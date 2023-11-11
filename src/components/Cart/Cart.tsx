@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { FF__cookTime } from "../../../FeatureFlags";
 
 import Modal, { ModalBackdrop, ModalOverlay } from "../UI/Modal";
 import CartItem from "./CartItem";
@@ -95,10 +96,14 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
         {hasItems ? (
           <div>
             <ul className={classes.cartItems}>{cartItems}</ul>
-            <div className={classes.total}>
-              <span>Total Time</span>
-              <span className={classes.number}>{totalTime}</span>
-            </div>
+            {FF__cookTime ? (
+              <div className={classes.total}>
+                <span>Total Time</span>
+                <span className={classes.number}>{totalTime}</span>
+              </div>
+            ) : (
+              ""
+            )}
             <div className={classes.total}>
               <span>Total Amount</span>
               <span className={classes.number}>{totalAmount}</span>

@@ -10,9 +10,11 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 8vh;
   left: 5%;
   width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
   background: linear-gradient(
     to bottom right,
     var(--yomogi-0) 45%,
@@ -28,6 +30,7 @@
 @media (min-width: 768px) {
   .modal {
     width: 40rem;
+    max-height: 85vh;
     left: calc(50% - 20rem);
   }
 }

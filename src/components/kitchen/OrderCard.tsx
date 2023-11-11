@@ -1,4 +1,4 @@
-// import Button from "../UI/Button";
+import { FF__cookTime } from "../../../FeatureFlags";
 import classes from "./OrderCard.module.css";
 
 interface Item {
@@ -30,7 +30,7 @@ function OrderCard({
     <div key={id} className={classes.orderCard}>
       <div className={classes.title}>
         <h4>No.{totalAmount}</h4>
-        <p>{totalTime} min</p>
+        {FF__cookTime ? <p>{totalTime} min</p> : ""}
       </div>
       <ul>
         {items.map((item, index) => (
@@ -40,8 +40,7 @@ function OrderCard({
         ))}
       </ul>
       <div className={classes.controls}>
-        {/* TODO onClick add time */}
-        <button className={classes.btn}>Add Time</button>
+        {FF__cookTime ? <button className={classes.btn}>Add Time</button> : ""}
         <button className={classes.btn} onClick={onStartOrder}>
           {btnText}
         </button>
