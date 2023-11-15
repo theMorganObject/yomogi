@@ -3,6 +3,7 @@ import { useContext } from "react";
 import MealItemForm from "./MealItemForm";
 import classes from "./MealItem.module.css";
 import CartContext from "../../../store/cart-context";
+import { FF__cookTime } from "../../../../FeatureFlags";
 
 export interface MealItemProps {
   id: string;
@@ -33,8 +34,14 @@ const MealItem: React.FC<MealItemProps> = (props) => {
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
         <div className={classes.details}>
-          <div className={classes.time}>{props.time} min</div>
-          <div>|</div>
+          {FF__cookTime ? (
+            <>
+              <div className={classes.time}>{props.time} min</div>
+              <div>|</div>
+            </>
+          ) : (
+            ""
+          )}
           <div className={classes.price}>{price}</div>
         </div>
       </div>
