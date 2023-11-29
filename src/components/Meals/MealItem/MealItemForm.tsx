@@ -12,6 +12,23 @@ const MealItemForm: React.FC<MealItemFormProps> = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
   const amountInputRef = useRef<HTMLInputElement>(null);
 
+  const decrementHandler = () => changeAmountHandler(-1);
+  const incrementHandler = () => changeAmountHandler(1);
+
+  const changeAmountHandler = (amountChange: number) => {
+    if (amountInputRef.current) {
+      const enteredAmount = +amountInputRef.current.value + amountChange;
+
+      if (enteredAmount < 1 || enteredAmount > 5) {
+        setAmountIsValid(false);
+        return;
+      }
+
+      setAmountIsValid(true);
+      amountInputRef.current.value = enteredAmount.toString();
+    }
+  };
+
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -27,6 +44,7 @@ const MealItemForm: React.FC<MealItemFormProps> = (props) => {
       return;
     }
 
+    setAmountIsValid(true);
     props.onAddToCart(enteredAmountNumber);
   };
 
@@ -43,9 +61,11 @@ const MealItemForm: React.FC<MealItemFormProps> = (props) => {
           step: "1",
           defaultValue: "1",
         }}
+        onDecrement={decrementHandler}
+        onIncrement={incrementHandler}
       />
-      <button>+ Add</button>
-      {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
+      <button className={classes.submitBtn}>+ Add</button>
+      {!amountIsValid && <p>Please choose 1-5 per order.</p>}
     </form>
   );
 };

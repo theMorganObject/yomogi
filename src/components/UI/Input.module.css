@@ -14,8 +14,37 @@
 .input input {
   background-color: var(--mysticgrape-0);
   font-family: var(--font-montserrat);
-  width: 3rem;
+  font-weight: bold;
+  text-align: center;
+  width: 2rem;
   border-radius: 5px;
   border: 1px solid var(--yomogi-0);
-  padding-left: 0.5rem;
+  padding: 0.25rem;
+  -moz-appearance: textfield; /* Firefox */
+  appearance: none;
+}
+
+.input input::-webkit-inner-spin-button,
+.input input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputBtn {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--mysticgrape-7);
+  border: 1px solid var(--mysticgrape-7);
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+
+.inputBtn:hover,
+.inputBtn:active {
+  background-color: var(--mysticgrape-7);
+  color: var(--yomogi-0);
+  border: 1px solid var(--mysticgrape-0);
 }
