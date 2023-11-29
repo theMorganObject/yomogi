@@ -73,27 +73,27 @@ export default function OrdersKanban() {
     }
   }
 
-  const handleStartOrder = (orderId: string) => {
-    const orderToMove = orders.find((order) => order.id === orderId);
+  // const handleStartOrder = (orderId: string) => {
+  //   const orderToMove = orders.find((order) => order.id === orderId);
 
-    if (orderToMove) {
-      const currentColumnIndex = columns.indexOf(orderToMove.column);
+  //   if (orderToMove) {
+  //     const currentColumnIndex = columns.indexOf(orderToMove.column);
 
-      if (currentColumnIndex < columns.length - 1) {
-        const nextColumn = columns[currentColumnIndex + 1];
+  //     if (currentColumnIndex < columns.length - 1) {
+  //       const nextColumn = columns[currentColumnIndex + 1];
 
-        setOrders((prevOrders) =>
-          prevOrders.map((order) =>
-            order.id === orderId ? { ...order, column: nextColumn } : order
-          )
-        );
-      }
+  //       setOrders((prevOrders) =>
+  //         prevOrders.map((order) =>
+  //           order.id === orderId ? { ...order, column: nextColumn } : order
+  //         )
+  //       );
+  //     }
 
-      if (currentColumnIndex === columns.length - 1) {
-        handleCompleteOrder(orderId);
-      }
-    }
-  };
+  //     if (currentColumnIndex === columns.length - 1) {
+  //       handleCompleteOrder(orderId);
+  //     }
+  //   }
+  // };
 
   return (
     <div className={classes.container}>
@@ -117,7 +117,7 @@ export default function OrdersKanban() {
                 totalAmount={order.totalAmount}
                 totalTime={order.totalTime}
                 items={order.items}
-                onStartOrder={() => handleStartOrder(order.id)}
+                // onStartOrder={() => handleStartOrder(order.id)}
                 btnText={"Start"}
               />
             ))}

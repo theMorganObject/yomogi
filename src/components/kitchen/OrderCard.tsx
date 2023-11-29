@@ -18,7 +18,7 @@ interface OrderCardProps {
   totalAmount: number;
   totalTime: number;
   id: string;
-  onStartOrder: () => void;
+  // onStartOrder: () => void;
   btnText: string;
   index: number;
 }
@@ -27,8 +27,8 @@ function OrderCard({
   totalAmount,
   totalTime,
   items,
-  onStartOrder,
-  btnText,
+  // onStartOrder,
+  // btnText,
   id,
   index,
 }: OrderCardProps) {
