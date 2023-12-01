@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  box-shadow: 1px 5px 10px var(--yomogi-11);
+  border-radius: 14px;
+  background: linear-gradient(
+    to bottom right,
+    var(--yomogi-0) 45%,
+    var(--mysticgrape-0) 100%
+  );
+  padding: 1rem;
 }
 
 .container h2 {

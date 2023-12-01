@@ -7,13 +7,11 @@ import classes from "./KanbanColumn.module.css";
 
 interface KanbanColumProps {
   title: string;
-  // columnId: string;
   children?: ReactNode;
   id: string;
 }
 
 function KanbanColumn({ title, children, id }: KanbanColumProps) {
-  // Add 'id' to the function parameters
   return (
     <Droppable droppableId={id} key={id}>
       {(provided, snapshot) => {
@@ -23,9 +21,11 @@ function KanbanColumn({ title, children, id }: KanbanColumProps) {
             ref={provided.innerRef}
             className={classes.container}
             style={{
-              background: snapshot.isDraggingOver ? "lightblue" : "lightgrey",
+              background: snapshot.isDraggingOver
+                ? "var(--mysticgrape-2)"
+                : "linear-gradient(to bottom right, var(--yomogi-0) 45%, var(--mysticgrape-0) 100%)",
               padding: 4,
-              width: 250,
+              minWidth: 250,
               minHeight: 500,
             }}
           >
