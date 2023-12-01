@@ -64,16 +64,16 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
 
       const response = await POST(orderData);
       if (!response.ok) {
+        // TODO implement error handling and test to make sure modal closes
         throw new Error("Order submission failed.");
       }
-      setOrderSent(true);
-      cartCtx.clearCart();
-      onClose();
-    } catch (error) {
-      // TODO implement error handling
-      // console.error(error.message);
+    } catch (error: any) {
+      console.error(error.message);
     } finally {
+      // setOrderSent(true);
+      cartCtx.clearCart();
       setIsSubmitting(false);
+      onClose();
     }
   };
 

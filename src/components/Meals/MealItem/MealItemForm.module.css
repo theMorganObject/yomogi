@@ -2,7 +2,7 @@
   text-align: right;
 }
 
-.form button {
+.submitBtn {
   font-family: var(--font-cinzel-decorative);
   font-weight: bold;
   color: var(--yomogi-0);
@@ -16,8 +16,8 @@
   padding: 0.25rem 2rem;
 }
 
-.form button:hover,
-.form button:active {
+.submitBtn:hover,
+.submitBtn:active {
   background: linear-gradient(
     to left top,
     var(--mysticgrape-9),

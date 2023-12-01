@@ -4,7 +4,7 @@
   box-shadow: 1px 2px 5px var(--yomogi-8);
   width: 100%;
   padding: 0.5rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .title {
@@ -21,18 +21,4 @@
 
 .item:last-child {
   margin-bottom: 1.2rem;
-}
-.controls {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.btn {
-  border-radius: 12px;
-  background-color: var(--mysticgrape-2);
-  padding: 8px 14px;
-  font-weight: bold;
-  color: var(--yomogi-11);
-  box-shadow: 1.5px 1.5px 6px var(--yomogi-9);
 }
