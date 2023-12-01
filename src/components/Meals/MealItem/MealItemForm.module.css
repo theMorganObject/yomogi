@@ -24,3 +24,11 @@
     var(--mysticgrape-1)
   );
 }
+
+/* Reset Firefox default styling for number input */
+.form input[type="number"] {
+  /* Remove up and down arrows in Firefox */
+  -moz-appearance: textfield;
+  /* Remove default spinner arrows in Firefox */
+  appearance: textfield;
+}
