@@ -37,15 +37,8 @@
 
 .actions {
   display: flex;
-  flex-direction: column;
   font-family: var(--font-montserrat);
   color: var(--yomogi-11);
-}
-
-@media (min-width: 768px) {
-  .actions {
-    flex-direction: row;
-  }
 }
 
 .cartItem button {

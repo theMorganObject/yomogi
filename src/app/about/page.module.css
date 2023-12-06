@@ -1,8 +1,8 @@
 .title {
   text-align: center;
   font-family: var(--font-cinzel-decorative);
-  font-size: 6rem;
   color: var(--yomogi-11);
+  font-size: 6rem;
   letter-spacing: 0.75rem;
   margin-bottom: 0.5rem;
 }
@@ -29,4 +29,27 @@
   font-size: 1.6rem;
   letter-spacing: 0.05rem;
   margin-bottom: 2.8rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .title {
+    font-size: 4rem;
+  }
+  .subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 16px;
+  }
 }

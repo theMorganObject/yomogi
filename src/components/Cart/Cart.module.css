@@ -68,3 +68,14 @@
   padding-right: 1.5rem;
   margin-bottom: 2rem;
 }
+
+@media only screen and (max-width: 430px) {
+  .actions {
+    text-align: center;
+  }
+  .actions button {
+    padding: 0.2rem 1rem;
+    border-radius: 25px;
+    /* margin-left: 1rem; */
+  }
+}

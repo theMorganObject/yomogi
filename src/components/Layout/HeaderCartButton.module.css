@@ -73,3 +73,13 @@
     transform: scale(1);
   }
 }
+
+@media only screen and (max-width: 440px) {
+  .button {
+    padding: 0.25rem 1rem;
+  }
+
+  .cta {
+    font-size: 14px;
+  }
+}

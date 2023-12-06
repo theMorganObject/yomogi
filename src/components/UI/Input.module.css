@@ -48,3 +48,27 @@
   color: var(--yomogi-0);
   border: 1px solid var(--mysticgrape-0);
 }
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 640px) {
+  .input {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr;
+  }
+
+  .input label {
+    margin: 0;
+    grid-column-start: span 3;
+    text-align: center;
+    align-self: start;
+  }
+
+  .btnL {
+    display: block;
+  }
+
+  .btnR {
+    display: block;
+  }
+}

@@ -18,10 +18,13 @@ interface InputProps {
 const Input = (props: InputProps, ref: Ref<HTMLInputElement>) => {
   return (
     <div className={classes.input}>
-      <label htmlFor={props.input.id}>{props.label}</label>
+      <label htmlFor={props.input.id} className={classes.inputText}>
+        {props.label}
+      </label>
+
       <button
         type="button"
-        className={classes.inputBtn}
+        className={`${classes.inputBtn} ${classes.btnL}`}
         onClick={props.onDecrement}
       >
         -
@@ -29,7 +32,7 @@ const Input = (props: InputProps, ref: Ref<HTMLInputElement>) => {
       <input ref={ref} {...props.input} />
       <button
         type="button"
-        className={classes.inputBtn}
+        className={`${classes.inputBtn} ${classes.btnR}`}
         onClick={props.onIncrement}
       >
         +
