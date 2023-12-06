@@ -7,11 +7,6 @@
   margin-top: 2rem;
 }
 
-.summary h2 {
-  font-size: 2rem;
-  margin-top: 0;
-}
-
 .paragraph {
   font-family: var(--font-cormorant-garamond);
   font-size: 1.6rem;
@@ -37,4 +32,24 @@
 .button:hover,
 .button:active {
   background: linear-gradient(to left top, #4f188a, #ba93fe);
+}
+
+@media only screen and (max-width: 640px) {
+  .paragraph {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .button {
+    font-size: 16px;
+  }
 }

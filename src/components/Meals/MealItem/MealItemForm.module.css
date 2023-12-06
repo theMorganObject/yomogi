@@ -1,3 +1,5 @@
+/* MealItemForm.module.css */
+
 .form {
   text-align: right;
 }
@@ -25,10 +27,37 @@
   );
 }
 
+/* Media query for smaller screens */
+@media only screen and (max-width: 640px) {
+  .form {
+    align-items: center;
+  }
+
+  .submitBtn {
+    padding: 0.25rem 1rem;
+  }
+}
+
 /* Reset Firefox default styling for number input */
 .form input[type="number"] {
   /* Remove up and down arrows in Firefox */
   -moz-appearance: textfield;
   /* Remove default spinner arrows in Firefox */
   appearance: textfield;
+}
+
+/* Add styling for the error message on smaller screens */
+@media only screen and (max-width: 640px) {
+  .form {
+    text-align: center;
+  }
+
+  .form p {
+    text-align: left;
+    margin-top: 0.5rem; /* Adjust margin for smaller screens */
+  }
+
+  .submitBtn {
+    padding: 0.25rem 1rem;
+  }
 }
