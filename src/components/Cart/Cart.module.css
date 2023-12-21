@@ -2,6 +2,13 @@
   color: var(--yomogi-11);
 }
 
+.title {
+  text-align: center;
+  font-family: var(--font-cinzel-decorative);
+  color: var(--yomogi-11);
+  font-size: 2rem;
+}
+
 .cartItems {
   list-style: none;
   margin: 0;
@@ -70,12 +77,23 @@
 }
 
 @media only screen and (max-width: 430px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .total {
+    font-size: 1rem;
+  }
   .actions {
     text-align: center;
   }
   .actions button {
     padding: 0.2rem 1rem;
     border-radius: 25px;
-    /* margin-left: 1rem; */
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .title {
+    font-size: 1.5rem;
   }
 }

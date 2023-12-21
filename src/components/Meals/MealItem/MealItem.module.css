@@ -12,7 +12,22 @@
   font-weight: 800;
   color: var(--yomogi-9);
   letter-spacing: 0.05rem;
-  margin: 0 0 0.25rem 0;
+}
+
+.container {
+  margin-right: 0.5rem;
+}
+
+.title {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.price {
+  font-weight: 400;
+  font-style: italic;
 }
 
 .description {
@@ -35,8 +50,8 @@
   padding-right: 1rem;
 }
 
-.price {
-  font-weight: 400;
-  font-style: italic;
-  padding-left: 1rem;
+@media only screen and (max-width: 440px) {
+  .meal {
+    flex-direction: column;
+  }
 }

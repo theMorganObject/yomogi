@@ -95,6 +95,7 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
       <ModalOverlay>
         {hasItems ? (
           <div>
+            <h2 className={classes.title}>Your Cart</h2>
             <ul className={classes.cartItems}>{cartItems}</ul>
             {FF__cookTime ? (
               <div className={classes.total}>
