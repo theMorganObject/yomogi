@@ -60,3 +60,14 @@
   color: var(--yomogi-0);
   border: 2px solid var(--mysticgrape-0);
 }
+
+@media only screen and (max-width: 430px) {
+  .name {
+    font-size: 0.8rem;
+  }
+  .cartItem button {
+    font-size: 1rem;
+    border: 1px solid var(--mysticgrape-7);
+    width: 2rem;
+  }
+}

@@ -76,10 +76,22 @@
 
 @media only screen and (max-width: 440px) {
   .button {
+    padding: 0.6rem 1.25rem;
+  }
+  .badge {
     padding: 0.25rem 1rem;
   }
+}
 
-  .cta {
+@media only screen and (max-width: 364px) {
+  .button {
     font-size: 14px;
+    padding: 0.6rem 1rem;
+  }
+  .badge {
+    font-size: 12px;
+    border-radius: 25px;
+    padding: 0.2rem 0.6rem;
+    margin-left: 1rem;
   }
 }

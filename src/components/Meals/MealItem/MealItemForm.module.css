@@ -1,5 +1,3 @@
-/* MealItemForm.module.css */
-
 .form {
   text-align: right;
 }
@@ -27,14 +25,36 @@
   );
 }
 
-/* Media query for smaller screens */
 @media only screen and (max-width: 640px) {
   .form {
     align-items: center;
+    text-align: center;
+  }
+
+  .form p {
+    text-align: left;
+    margin-top: 0.5rem;
   }
 
   .submitBtn {
     padding: 0.25rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .form {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .submitBtn {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.7rem;
+  }
+}
+
+@media only screen and (min-width: 320px) {
+  .form {
+    flex-direction: column;
   }
 }
 
@@ -44,20 +64,4 @@
   -moz-appearance: textfield;
   /* Remove default spinner arrows in Firefox */
   appearance: textfield;
-}
-
-/* Add styling for the error message on smaller screens */
-@media only screen and (max-width: 640px) {
-  .form {
-    text-align: center;
-  }
-
-  .form p {
-    text-align: left;
-    margin-top: 0.5rem; /* Adjust margin for smaller screens */
-  }
-
-  .submitBtn {
-    padding: 0.25rem 1rem;
-  }
 }

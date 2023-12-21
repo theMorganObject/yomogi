@@ -14,7 +14,7 @@ export default function About() {
       />
       <h1 className={css.title}>YoMogi</h1>
       <p className={css.subtitle}>Japanese-Fusion Gastropub</p>
-      <AboutDetail />;
+      <AboutDetail />
     </section>
   );
 }

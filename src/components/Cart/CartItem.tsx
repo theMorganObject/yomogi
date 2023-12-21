@@ -16,7 +16,7 @@ const CartItem: React.FC<CartItemProps> = (props) => {
   return (
     <li className={classes.cartItem}>
       <div>
-        <h2>{props.name}</h2>
+        <h2 className={classes.name}>{props.name}</h2>
         {FF__cookTime ? (
           <span className={classes.time}>Ready in {props.time} minutes</span>
         ) : (
