@@ -5,6 +5,7 @@ import {
   cinzelDecorative,
   montserrat,
 } from "@/components/utils/fonts";
+import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "YoMogi",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body>
         {children}
         <div id="overlays"></div>
+        <Footer />
       </body>
     </html>
   );
