@@ -2,16 +2,16 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 async function POST(orderData: object): Promise<Response> {
   if (!apiKey) {
-    throw new Error("API_KEY environment variable is not defined.");
+    throw new Error('API_KEY environment variable is not defined.');
   }
 
   const res = await fetch(
-    "https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json",
+    'https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json',
     {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "API-Key": apiKey,
+        'Content-Type': 'application/json',
+        'API-Key': apiKey,
       },
       body: JSON.stringify(orderData),
     }
@@ -39,23 +39,23 @@ interface Data {
 
 async function GET(): Promise<Data> {
   if (!apiKey) {
-    throw new Error("API_KEY environment variable is not defined.");
+    throw new Error('API_KEY environment variable is not defined.');
   }
 
   try {
     const res = await fetch(
-      "https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json",
+      'https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
-          "API-Key": apiKey,
+          'Content-Type': 'application/json',
+          'API-Key': apiKey,
         },
       }
     );
 
     if (!res.ok) {
-      throw new Error("Order fetch failed.");
+      throw new Error('Order fetch failed.');
     }
 
     const data: Data = await res.json();
@@ -69,23 +69,23 @@ async function GET(): Promise<Data> {
 
 async function handleCompleteOrder(orderId: string): Promise<void> {
   if (!apiKey) {
-    throw new Error("API_KEY environment variable is not defined.");
+    throw new Error('API_KEY environment variable is not defined.');
   }
 
   try {
     const response = await fetch(
       `https://yomogi-de7d3-default-rtdb.firebaseio.com/orders/${orderId}.json`,
       {
-        method: "DELETE",
+        method: 'DELETE',
         headers: {
-          "Content-Type": "application/json",
-          "API-Key": apiKey,
+          'Content-Type': 'application/json',
+          'API-Key': apiKey,
         },
       }
     );
 
     if (!response.ok) {
-      throw new Error("Order deletion failed.");
+      throw new Error('Order deletion failed.');
     }
   } catch (error) {
     console.error(error);
