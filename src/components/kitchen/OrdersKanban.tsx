@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { GET } from "../../api/Orders";
+import { useState, useEffect } from 'react';
+import { GET } from '../../app/api/Orders';
 //@ts-ignoreignore
-import { DragDropContext, Draggable } from "react-beautiful-dnd";
-import { onDragEnd } from "./kitchenUtil";
+import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { onDragEnd } from './kitchenUtil';
 
-import KanbanColumn from "./KanbanColumn";
-import OrderCard from "./OrderCard";
-import classes from "./OrdersKanban.module.css";
+import KanbanColumn from './KanbanColumn';
+import OrderCard from './OrderCard';
+import classes from './OrdersKanban.module.css';
 
 type Order = {
   items: {
@@ -43,9 +43,9 @@ export default function OrdersKanban() {
         }));
 
         const extractedColumns = [
-          { columnId: "k1", orders: extractedOrders },
-          { columnId: "k2", orders: [] },
-          { columnId: "k3", orders: [] },
+          { columnId: 'k1', orders: extractedOrders },
+          { columnId: 'k2', orders: [] },
+          { columnId: 'k3', orders: [] },
         ];
 
         setColumns(extractedColumns);
@@ -59,14 +59,14 @@ export default function OrdersKanban() {
 
   function getColumnTitle(columnId: string): string {
     switch (columnId) {
-      case "k1":
-        return "To Do";
-      case "k2":
-        return "Doing";
-      case "k3":
-        return "Done";
+      case 'k1':
+        return 'To Do';
+      case 'k2':
+        return 'Doing';
+      case 'k3':
+        return 'Done';
       default:
-        return "";
+        return '';
     }
   }
 
