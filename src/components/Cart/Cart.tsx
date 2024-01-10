@@ -1,11 +1,12 @@
-import { useState, useContext, useEffect } from "react";
-import { FF__cookTime } from "../../../FeatureFlags";
+import { useState, useContext, useEffect } from 'react';
+import { FF__cookTime } from '../../../FeatureFlags';
 
-import Modal, { ModalBackdrop, ModalOverlay } from "../UI/Modal";
-import CartItem from "./CartItem";
-import classes from "./Cart.module.css";
-import CartContext from "../../store/cart-context";
-import { POST } from "../../api/Orders";
+import Modal, { ModalBackdrop, ModalOverlay } from '../UI/Modal';
+import CartItem from './CartItem';
+import classes from './Cart.module.css';
+import CartContext from '../../store/cart-context';
+import { POST } from '../../app/api/Orders';
+// import { POST } from '../../app/api/email/route';
 
 export interface CartProps {
   onClose: () => void;
@@ -17,6 +18,34 @@ interface CartItem {
   amount: number;
   time: number;
   price: number;
+}
+
+interface OrderData {
+  id: string;
+  items: CartItem[];
+  totalAmount: number;
+  totalTime: number;
+}
+
+function sendEmail(data: OrderData) {
+  const apiEndpoint = '/api/email';
+
+  fetch(apiEndpoint, {
+    method: 'POST',
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      // TODO if res.ok, tell the user that the order was received
+      // const response = res.json();
+      // console.log('sendEmail response', res, response);
+      // res.json();
+    })
+    // .then((response) => {
+    //   alert(response.message);
+    // })
+    .catch((err) => {
+      alert(err);
+    });
 }
 
 const Cart: React.FC<CartProps> = ({ onClose }) => {
@@ -63,31 +92,15 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
       };
 
       const response = await POST(orderData);
-      if (!response.ok) {
-        // TODO implement error handling and test to make sure modal closes
-        throw new Error("Order submission failed.");
-      }
+      await sendEmail(orderData);
     } catch (error: any) {
       console.error(error.message);
     } finally {
-      // setOrderSent(true);
       cartCtx.clearCart();
       setIsSubmitting(false);
       onClose();
     }
   };
-
-  // TODO show user that order was sent
-  // useEffect(() => {
-  //   if (orderSent) {
-  //     const timer = setTimeout(() => {
-  //       setOrderSent(false), 5000;
-  //     });
-  //     return () => {
-  //       clearTimeout(timer);
-  //     };
-  //   }
-  // }, [orderSent]);
 
   return (
     <Modal>
@@ -103,7 +116,7 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
                 <span className={classes.number}>{totalTime}</span>
               </div>
             ) : (
-              ""
+              ''
             )}
             <div className={classes.total}>
               <span>Total Amount</span>
@@ -121,7 +134,7 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
                 onClick={orderHandler}
                 disabled={cartCtx.items.length === 0 || isSubmitting}
               >
-                {isSubmitting ? "Submitting..." : "Order"}
+                {isSubmitting ? 'Submitting...' : 'Order'}
               </button>
             </div>
           </div>

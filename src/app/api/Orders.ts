@@ -17,8 +17,13 @@ async function POST(orderData: object): Promise<Response> {
     }
   );
 
-  const data = await res.json();
+  console.log('orders response', res); // res.ok
+  if (!res.ok) {
+    throw new Error('Order submission failed.');
+  }
 
+  const data = await res.json();
+  console.log('data', data);
   return data;
 }
 
