@@ -1,30 +1,45 @@
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-async function POST(orderData: object): Promise<Response> {
+const apiKey = process.env.API_KEY;
+
+async function POST(req: NextApiRequest, res: NextApiResponse) {
+  // console.log(apiKey);
   if (!apiKey) {
-    throw new Error('API_KEY environment variable is not defined.');
+    res
+      .status(500)
+      .json({ error: 'API_KEY environment variable is not defined.' });
+    return;
   }
-
-  const res = await fetch(
-    'https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json',
+  try {
+    console.log(req.body); // 'ReadableStream { locked: false, state: 'readable', supportsBYOB: false }'
+    const orderData = req.body; // orderData ReadableStream { locked: false, state: 'readable', supportsBYOB: false }
     {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'API-Key': apiKey,
-      },
-      body: JSON.stringify(orderData),
     }
-  );
+    console.log('orderData', orderData, JSON.stringify(orderData));
+    const response = await fetch(
+      'https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'API-Key': apiKey,
+        },
+        body: JSON.stringify(orderData),
+      }
+    );
+    console.log('orders response', response); // orders response { params: undefined }
+    if (!response.ok) {
+      throw new Error('Order submission failed.');
+    }
 
-  console.log('orders response', res); // res.ok
-  if (!res.ok) {
-    throw new Error('Order submission failed.');
+    const data = await response.json();
+    // console.log('data', data);
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    // @ts-ignore
+    res.status(500).json({ error: error.message });
   }
-
-  const data = await res.json();
-  console.log('data', data);
-  return data;
 }
 
 interface Data {

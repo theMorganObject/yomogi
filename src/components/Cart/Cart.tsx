@@ -1,12 +1,10 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { FF__cookTime } from '../../../FeatureFlags';
 
 import Modal, { ModalBackdrop, ModalOverlay } from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
-import { POST } from '../../app/api/Orders';
-// import { POST } from '../../app/api/email/route';
 
 export interface CartProps {
   onClose: () => void;
@@ -76,14 +74,35 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
     />
   ));
 
+  const submitOrder = async (orderData: OrderData) => {
+    // console.log('submit order', orderData);
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Order submission failed.');
+      }
+
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      throw error; // Re-throw the error for further handling if necessary
+    }
+  };
+
   const orderHandler = async () => {
-    // Prevent double submissions
     if (isSubmitting) return;
     setIsSubmitting(true);
 
     try {
       const id = crypto.randomUUID();
-
       const orderData = {
         id,
         items: cartCtx.items,
@@ -91,8 +110,11 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
         totalTime: cartCtx.totalTime,
       };
 
-      const response = await POST(orderData);
+      // console.log('handle order', orderData);
+
+      await submitOrder(orderData);
       await sendEmail(orderData);
+      setOrderSent(true); // Assuming you want to update this state when order is sent
     } catch (error: any) {
       console.error(error.message);
     } finally {

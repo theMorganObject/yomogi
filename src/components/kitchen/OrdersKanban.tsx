@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { GET } from '../../app/api/Orders';
+import { GET } from '../../app/api/orders/route';
 //@ts-ignoreignore
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import { onDragEnd } from './kitchenUtil';
