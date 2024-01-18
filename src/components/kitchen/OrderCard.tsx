@@ -1,9 +1,9 @@
-"use client";
-import { FF__cookTime } from "../../../FeatureFlags";
+'use client';
+import { FF__cookTime } from '../../../FeatureFlags';
 
 //@ts-ignoreignore
-import { Draggable } from "react-beautiful-dnd";
-import classes from "./OrderCard.module.css";
+import { Draggable } from 'react-beautiful-dnd';
+import classes from './OrderCard.module.css';
 
 interface Item {
   amount: number;
@@ -38,19 +38,19 @@ function OrderCard({
             {...provided.dragHandleProps}
             className={classes.orderCard}
             style={{
-              maxWidth: "85%",
+              maxWidth: '85%',
               backgroundColor: snapshot.isDragging
-                ? "var(--mysticgrape-11)"
-                : "var(--mysticgrape-0)",
+                ? 'var(--mysticgrape-11)'
+                : 'var(--mysticgrape-0)',
               color: snapshot.isDragging
-                ? "var(--yomogi-0)"
-                : "var(--yomogi-11)",
+                ? 'var(--yomogi-0)'
+                : 'var(--yomogi-11)',
               ...provided.draggableProps.style,
             }}
           >
             <div className={classes.title}>
               <h4>No.{totalAmount}</h4>
-              {FF__cookTime ? <p>{totalTime} min</p> : ""}
+              {FF__cookTime ? <p>{totalTime} min</p> : ''}
             </div>
             <ul>
               {items.map((item, index) => (
@@ -62,7 +62,7 @@ function OrderCard({
             {FF__cookTime ? (
               <button className={classes.btn}>Add Time</button>
             ) : (
-              ""
+              ''
             )}
           </div>
         );

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { GET } from '../../app/api/Orders';
 //@ts-ignoreignore
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import { onDragEnd } from './kitchenUtil';
@@ -35,12 +34,24 @@ export default function OrdersKanban() {
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const data = await GET();
+        const response = await fetch('/api/orders', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
 
-        const extractedOrders = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }));
+        if (!response.ok) {
+          throw new Error('Failed to fetch orders.');
+        }
+
+        const ordersData = await response.json();
+
+        const extractedOrders = Object.keys(ordersData).map((key) => {
+          const order = ordersData[key];
+          return {
+            id: key,
+            ...order.orderData,
+          };
+        });
 
         const extractedColumns = [
           { columnId: 'k1', orders: extractedOrders },

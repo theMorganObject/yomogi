@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from 'react'; // NOTE: 'use client' is set on page.tsx, which is this component's parent
 
-import CartIcon from "../Cart/CartIcon";
-import CartContext from "../../store/cart-context";
-import classes from "./HeaderCartButton.module.css";
+import CartIcon from '../Cart/CartIcon';
+import CartContext from '../../store/cart-context';
+import classes from './HeaderCartButton.module.css';
 
 interface HeaderCartButtonProps {
   onClick: () => void;
@@ -19,7 +19,7 @@ const HeaderCartButton: React.FC<HeaderCartButtonProps> = (props) => {
   }, 0);
 
   const btnClasses = `${classes.button} ${
-    btnIsHighlighted ? classes.bump : ""
+    btnIsHighlighted ? classes.bump : ''
   }`;
 
   useEffect(() => {

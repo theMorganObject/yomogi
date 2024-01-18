@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext } from 'react'; // NOTE: 'use client' is set on page.tsx, which is this component's parent
 
-import MealItemForm from "./MealItemForm";
-import classes from "./MealItem.module.css";
-import CartContext from "../../../store/cart-context";
-import { FF__cookTime } from "../../../../FeatureFlags";
+import MealItemForm from './MealItemForm';
+import classes from './MealItem.module.css';
+import CartContext from '../../../store/cart-context';
+import { FF__cookTime } from '../../../../FeatureFlags';
 
 export interface MealItemProps {
   id: string;
@@ -43,7 +43,7 @@ const MealItem: React.FC<MealItemProps> = (props) => {
               <div>|</div>
             </>
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>

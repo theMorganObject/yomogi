@@ -1,14 +1,13 @@
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiKey = process.env.API_KEY;
 
-async function POST(orderData: object): Promise<Response> {
-  if (!apiKey) {
-    throw new Error('API_KEY environment variable is not defined.');
-  }
+async function POST(request: Request) {
+  const orderData = await request.json();
 
-  const res = await fetch(
+  const res = await await fetch(
     'https://yomogi-de7d3-default-rtdb.firebaseio.com/orders.json',
     {
       method: 'POST',
+      //@ts-ignore
       headers: {
         'Content-Type': 'application/json',
         'API-Key': apiKey,
@@ -17,32 +16,10 @@ async function POST(orderData: object): Promise<Response> {
     }
   );
 
-  console.log('orders response', res); // res.ok
-  if (!res.ok) {
-    throw new Error('Order submission failed.');
-  }
-
-  const data = await res.json();
-  console.log('data', data);
-  return data;
+  return Response.json({ res });
 }
 
-interface Data {
-  [key: string]: {
-    items: {
-      amount: number;
-      id: string;
-      name: string;
-      price: number;
-      time: number;
-    }[];
-    totalAmount: number;
-    totalTime: number;
-    column: string;
-  };
-}
-
-async function GET(): Promise<Data> {
+async function GET(request: Request) {
   if (!apiKey) {
     throw new Error('API_KEY environment variable is not defined.');
   }
@@ -63,20 +40,25 @@ async function GET(): Promise<Data> {
       throw new Error('Order fetch failed.');
     }
 
-    const data: Data = await res.json();
+    const data = await res.json();
 
-    return data;
+    return Response.json(data);
   } catch (error) {
     console.error(error);
     throw error;
   }
 }
 
+export { POST, GET };
+
+//////////////////////////////////////////////
+// NOTE: left over from Next12 pages router, refactor at a later date
+/*
 async function handleCompleteOrder(orderId: string): Promise<void> {
   if (!apiKey) {
     throw new Error('API_KEY environment variable is not defined.');
   }
-
+  
   try {
     const response = await fetch(
       `https://yomogi-de7d3-default-rtdb.firebaseio.com/orders/${orderId}.json`,
@@ -87,14 +69,14 @@ async function handleCompleteOrder(orderId: string): Promise<void> {
           'API-Key': apiKey,
         },
       }
-    );
-
-    if (!response.ok) {
-      throw new Error('Order deletion failed.');
+      );
+      
+      if (!response.ok) {
+        throw new Error('Order deletion failed.');
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
-}
-
-export { POST, GET, handleCompleteOrder };
+  
+  */
