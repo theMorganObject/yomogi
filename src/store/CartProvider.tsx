@@ -1,5 +1,5 @@
-import React, { useReducer, ReactNode } from "react";
-import CartContext, { CartItem } from "./cart-context"; // Import the CartItem type if it's defined
+import React, { useReducer, ReactNode } from 'react';
+import CartContext, { CartItem } from './cart-context'; // Import the CartItem type if it's defined
 
 interface CartState {
   items: CartItem[]; // Use the CartItem type for items
@@ -8,7 +8,7 @@ interface CartState {
 }
 
 interface CartAction {
-  type: "ADD" | "REMOVE" | "CLEAR";
+  type: 'ADD' | 'REMOVE' | 'CLEAR';
   item?: CartItem;
   id?: string;
 }
@@ -20,7 +20,7 @@ const defaultCartState: CartState = {
 };
 
 const cartReducer = (state: CartState, action: CartAction) => {
-  if (action.type === "ADD" && action.item) {
+  if (action.type === 'ADD' && action.item) {
     const updatedTotalTime = state.totalTime + action.item.time;
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
@@ -49,7 +49,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
       totalAmount: updatedTotalAmount,
     };
   }
-  if (action.type === "REMOVE" && action.id) {
+  if (action.type === 'REMOVE' && action.id) {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
     );
@@ -71,7 +71,7 @@ const cartReducer = (state: CartState, action: CartAction) => {
       totalTime: updatedTotalTime,
     };
   }
-  if (action.type === "CLEAR") {
+  if (action.type === 'CLEAR') {
     return {
       ...defaultCartState, // Reset the cart state to its initial state
     };
@@ -87,15 +87,15 @@ const CartProvider: React.FC<{ children: ReactNode }> = (props) => {
   );
 
   const addItemToCartHandler = (item: CartItem) => {
-    dispatchCartAction({ type: "ADD", item: item });
+    dispatchCartAction({ type: 'ADD', item: item });
   };
 
   const removeItemFromCartHandler = (id: string) => {
-    dispatchCartAction({ type: "REMOVE", id: id });
+    dispatchCartAction({ type: 'REMOVE', id: id });
   };
 
   const clearCartHandler = () => {
-    dispatchCartAction({ type: "CLEAR" });
+    dispatchCartAction({ type: 'CLEAR' });
   };
 
   const cartContext = {

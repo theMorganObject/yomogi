@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext } from 'react'; // NOTE: 'use client' is set on page.tsx, which is this component's parent
 import { FF__cookTime } from '../../../FeatureFlags';
 
 import Modal, { ModalBackdrop, ModalOverlay } from '../UI/Modal';
@@ -23,27 +23,6 @@ interface OrderData {
   items: CartItem[];
   totalAmount: number;
   totalTime: number;
-}
-
-function sendEmail(data: OrderData) {
-  const apiEndpoint = '/api/email';
-
-  fetch(apiEndpoint, {
-    method: 'POST',
-    body: JSON.stringify(data),
-  })
-    .then((res) => {
-      // TODO if res.ok, tell the user that the order was received
-      // const response = res.json();
-      // console.log('sendEmail response', res, response);
-      // res.json();
-    })
-    // .then((response) => {
-    //   alert(response.message);
-    // })
-    .catch((err) => {
-      alert(err);
-    });
 }
 
 const Cart: React.FC<CartProps> = ({ onClose }) => {
@@ -74,26 +53,45 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
     />
   ));
 
+  function sendEmail(data: OrderData) {
+    const apiEndpoint = '/api/email';
+
+    fetch(apiEndpoint, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        // TODO if res.ok, tell the user that the order was received
+        // const response = res.json();
+        // console.log('sendEmail response', res, response);
+        // res.json();
+      })
+      // .then((response) => {
+      //   alert(response.message);
+      // })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
   const submitOrder = async (orderData: OrderData) => {
-    // console.log('submit order', orderData);
     try {
-      const response = await fetch('/api/orders', {
+      const res = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(orderData),
+        body: JSON.stringify({ orderData }),
       });
 
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error('Order submission failed.');
       }
 
-      const responseData = await response.json();
-      return responseData;
+      // const responseData = await res.json(); // TODO: show the user their order
     } catch (error) {
       console.error('Error submitting order:', error);
-      throw error; // Re-throw the error for further handling if necessary
+      throw error;
     }
   };
 
@@ -110,11 +108,9 @@ const Cart: React.FC<CartProps> = ({ onClose }) => {
         totalTime: cartCtx.totalTime,
       };
 
-      // console.log('handle order', orderData);
-
       await submitOrder(orderData);
       await sendEmail(orderData);
-      setOrderSent(true); // Assuming you want to update this state when order is sent
+      setOrderSent(true);
     } catch (error: any) {
       console.error(error.message);
     } finally {
