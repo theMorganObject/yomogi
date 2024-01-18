@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 //@ts-ignoreignore
-import { Droppable } from "react-beautiful-dnd";
-import classes from "./KanbanColumn.module.css";
+import { Droppable } from 'react-beautiful-dnd';
+import classes from './KanbanColumn.module.css';
 
 interface KanbanColumProps {
   title: string;
@@ -22,8 +22,8 @@ function KanbanColumn({ title, children, id }: KanbanColumProps) {
             className={classes.container}
             style={{
               background: snapshot.isDraggingOver
-                ? "var(--mysticgrape-2)"
-                : "linear-gradient(to bottom right, var(--yomogi-0) 45%, var(--mysticgrape-0) 100%)",
+                ? 'var(--mysticgrape-2)'
+                : 'linear-gradient(to bottom right, var(--yomogi-0) 45%, var(--mysticgrape-0) 100%)',
               padding: 4,
               minWidth: 250,
               minHeight: 500,
