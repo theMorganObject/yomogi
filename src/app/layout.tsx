@@ -1,15 +1,15 @@
-import "./globals.css";
-import type { Metadata } from "next";
+import './globals.css';
+import type { Metadata } from 'next';
 import {
   cormorantGaramond,
   cinzelDecorative,
   montserrat,
-} from "@/components/utils/fonts";
-import Footer from "@/components/Layout/Footer";
+} from '@/components/utils/fonts';
+import Footer from '@/components/Layout/Footer';
 
 export const metadata: Metadata = {
-  title: "YoMogi",
-  description: "A japanese fusion food ordering app",
+  title: 'YoMogi Diner & Cafe',
+  description: 'A japanese fusion food ordering app',
 };
 
 export default function RootLayout({
@@ -19,12 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang='en'
       className={`${cormorantGaramond.variable} ${cinzelDecorative.variable} ${montserrat.variable}`}
     >
       <body>
         {children}
-        <div id="overlays"></div>
+        <div id='overlays'></div>
         <Footer />
       </body>
     </html>
