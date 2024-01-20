@@ -1,3 +1,9 @@
+.container {
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+}
+
 .summary {
   position: relative;
   text-align: center;
@@ -7,17 +13,17 @@
   margin-top: 2rem;
 }
 
-.paragraph {
+.paragraph p {
   font-family: var(--font-cormorant-garamond);
   font-size: 1.2rem;
   text-align: left;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .button {
   font-family: var(--font-cinzel-decorative);
   font-weight: bold;
-  font-size: 24px;
+  font-size: 14px;
   color: #e0f7ec;
   background: linear-gradient(
     to left top,
@@ -27,7 +33,7 @@
   cursor: pointer;
   box-shadow: var(--yomogi-11) 3px 2px 12px;
   border-radius: 25px;
-  padding: 0.75rem 3rem;
+  padding: 0.3rem 0.8rem;
 }
 
 .button:hover,
@@ -35,9 +41,27 @@
   background: linear-gradient(to left top, #4f188a, #ba93fe);
 }
 
-@media only screen and (min-width: 1024px) {
-  .paragraph {
-    font-size: 1.2rem;
+@media only screen and (min-width: 320px) {
+  .summary {
+    padding-bottom: 1rem;
+    margin-top: 0;
+  }
+  .paragraph p {
+    margin-bottom: 1rem;
+  }
+  .button {
+    font-size: 14px;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .button {
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+  }
+  .paragraph p {
+    margin-bottom: 1rem;
   }
 }
 
@@ -45,28 +69,16 @@
   .paragraph {
     font-size: 1.2rem;
   }
+  .paragraph p {
+    margin-bottom: 1.5rem;
+  }
   .button {
     font-size: 18px;
     padding: 0.65rem 2rem;
   }
 }
-
-@media only screen and (min-width: 420px) {
-  /* .paragraph {
-    font-size: 0.8rem;
-  } */
-  .button {
-    font-size: 16px;
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media only screen and (min-width: 320px) {
-  .summary {
-    padding-bottom: 1rem;
-    margin-top: 0;
-  }
+@media only screen and (min-width: 1024px) {
   .paragraph {
-    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
   }
 }
